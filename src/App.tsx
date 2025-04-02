@@ -1,14 +1,21 @@
+import { useState } from "react";
+import NewTodo from "./components/NewTodo";
 import Todos from "./components/Todos";
 import { Todo } from "./types/todo";
 
 function App() {
-   const todos: Todo[] = [
-      { id: 1, title: "First Todo" },
-      { id: 2, title: "Second Todo" },
-   ];
+   const [todos, setTodos] = useState<Todo[]>([]);
+
+   const addTodoHandler = (todoText: string) => {
+      const newTodo: Todo = { id: Math.random(), title: todoText };
+      setTodos((prevTodos) => {
+         return prevTodos.concat(newTodo);
+      });
+   };
 
    return (
       <>
+         <NewTodo onAddTodo={addTodoHandler} />
          <Todos items={todos} />
       </>
    );
