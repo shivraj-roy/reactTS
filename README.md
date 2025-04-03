@@ -1,54 +1,75 @@
-# React + TypeScript + Vite
+# Todo App with React + TypeScript
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern Todo application built with React and TypeScript, featuring a clean and intuitive user interface for managing your daily tasks.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-  Add new todos with a user-friendly form
+-  Remove completed todos
+-  Type-safe implementation using TypeScript
+-  Context-based state management
+-  Modular component architecture
+-  CSS modules for styled components
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+-  React 18
+-  TypeScript
+-  Vite (Build Tool)
+-  CSS Modules
+-  ESLint for code quality
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Project Structure
+
+```
+├── src/
+│   ├── components/          # React components
+│   │   ├── NewTodo.tsx      # Add new todo form
+│   │   ├── TodoItem.tsx     # Individual todo item
+│   │   └── Todos.tsx        # Todo list container
+│   ├── context/             # React Context
+│   │   ├── ctx.tsx          # Todo context definition
+│   │   └── todo-context.tsx # Context provider
+│   ├── types/               # TypeScript types
+│   │   ├── context.ts       # Context types
+│   │   └── todo.ts          # Todo model types
+│   ├── App.tsx              # Main app component
+│   └── main.tsx             # App entry point
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Getting Started
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Prerequisites
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+-  Node.js (v14 or higher)
+-  npm or yarn
+
+### Installation
+
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+## Available Scripts
+
+-  `npm run dev` - Start development server
+-  `npm run build` - Build for production
+-  `npm run lint` - Run ESLint
+-  `npm run preview` - Preview production build
+
+## ESLint Configuration
+
+The project includes a robust ESLint setup with React-specific rules. You can extend it by installing additional plugins:
+
+-  [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x)
+-  [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom)
+
+## License
+
+MIT
