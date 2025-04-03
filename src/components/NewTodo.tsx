@@ -1,9 +1,9 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
+import { TodoContext } from "../context/ctx";
 import classes from "./NewTodo.module.css";
 
-const NewTodo: React.FC<{ onAddTodo: (todoText: string) => void }> = ({
-   onAddTodo,
-}) => {
+const NewTodo: React.FC = () => {
+   const { addTodo: onAddTodo } = useContext(TodoContext);
    const todoTextRef = useRef<HTMLInputElement>(null);
 
    const todoSubmitHandler = (event: React.FormEvent) => {

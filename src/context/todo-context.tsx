@@ -1,7 +1,7 @@
 import React from "react";
 import { Todo } from "../types/todo";
 import { TodoContextType } from "../types/context";
-import { TodoContext } from "./context";
+import { TodoContext } from "./ctx";
 
 const TodoContextProvider: React.FC<{ children: React.ReactNode }> = ({
    children,
@@ -10,7 +10,9 @@ const TodoContextProvider: React.FC<{ children: React.ReactNode }> = ({
 
    const addTodoHandler = (todoText: string) => {
       const newTodo: Todo = { id: Math.random(), title: todoText };
-      setTodos((prevTodos) => [...prevTodos, newTodo]);
+      setTodos((prevTodos) => {
+         return prevTodos.concat(newTodo);
+      });
    };
 
    const removeTodoHandler = (todoId: number) => {

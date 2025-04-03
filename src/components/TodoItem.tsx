@@ -1,16 +1,18 @@
-import { FC } from "react";
+import { FC, useContext } from "react";
+import { TodoContext } from "../context/ctx";
 import classes from "./TodoItem.module.css";
 
 const TodoItem: FC<{
    text: string;
    id: number;
-   onRemove: (ids: number) => void;
-}> = ({ text, id, onRemove }) => {
-   const removeTodo = () => {
-      onRemove(id);
+}> = ({ text, id }) => {
+   const { removeTodo } = useContext(TodoContext);
+
+   const removeTodoHandler = () => {
+      removeTodo(id);
    };
    return (
-      <li onClick={removeTodo} className={classes.item}>
+      <li onClick={removeTodoHandler} className={classes.item}>
          {text}
       </li>
    );
